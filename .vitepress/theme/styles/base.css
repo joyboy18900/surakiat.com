@@ -48,7 +48,7 @@ hr, .border {
 .container, main {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 0 var(--space-unit);
+  padding: calc(var(--space-unit) * 6) var(--space-unit) calc(var(--space-unit) * 10);
 }
 
 /* No gradients, no rounded floating cards, no drop shadows, no decorative icons. */

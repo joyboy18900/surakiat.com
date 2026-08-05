@@ -14,10 +14,15 @@ export interface PostData {
 declare const data: PostData[]
 export { data }
 
+// Glob also matches each post's optional *.en.md companion file (they live
+// in the same folder) — those must never appear as their own list entries,
+// so they're filtered out here. See postTranslations.data.ts for how their
+// content actually gets used (an in-place toggle on the Thai post page).
 export default createContentLoader('posts/*/*.md', {
   includeSrc: true,
   transform(raw): PostData[] {
     return raw
+      .filter((page) => !page.url.endsWith('.en'))
       .map((page): PostData => ({
         url: page.url,
         title: page.frontmatter.title,

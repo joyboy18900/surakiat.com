@@ -1,16 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData, Content } from 'vitepress'
-import { useLocale } from '../i18n'
-import { useLocalePosts } from '../loaders/useLocalePosts'
+import { data as posts } from '../loaders/posts.data'
 import SocialLinks from './SocialLinks.vue'
 
 const { frontmatter } = useData()
-const { prefix, t } = useLocale()
-const posts = useLocalePosts()
 
-const latest = computed(() => posts.value.slice(0, 3))
-const blogLink = computed(() => `${prefix.value}/posts/`)
+const latest = computed(() => posts.slice(0, 3))
 </script>
 
 <template>
@@ -25,8 +21,8 @@ const blogLink = computed(() => `${prefix.value}/posts/`)
 
   <section class="latest-posts">
     <div class="section-head">
-      <h2>{{ t('latestPosts') }}</h2>
-      <a :href="blogLink">{{ t('allPosts') }}</a>
+      <h2>บทความล่าสุด</h2>
+      <a href="/posts/">บทความทั้งหมด →</a>
     </div>
     <div v-for="post in latest" :key="post.url" class="row">
       <div class="row-meta">

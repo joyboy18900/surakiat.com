@@ -1,10 +1,14 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  lang: 'th',
   title: 'surakiat',
   description: 'Whole Stack Software Engineer',
   cleanUrls: true,
-  srcExclude: ['README.md', 'DESIGN.md', 'CLAUDE.md'],
+  // README/DESIGN/CLAUDE docs, and per-post English companion files, are
+  // never routed as their own pages — companions are only ever read via
+  // postTranslations.data.ts and shown as an in-place toggle on the Thai post.
+  srcExclude: ['README.md', 'DESIGN.md', 'CLAUDE.md', 'posts/**/*.en.md'],
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
@@ -23,18 +27,4 @@ export default defineConfig({
       })();`,
     ],
   ],
-
-  locales: {
-    root: {
-      label: 'ไทย',
-      lang: 'th',
-    },
-    en: {
-      label: 'English',
-      lang: 'en',
-      link: '/en/',
-      title: 'surakiat',
-      description: 'Whole Stack Software Engineer',
-    },
-  },
 })

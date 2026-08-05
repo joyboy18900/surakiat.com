@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useLocale } from '../i18n'
-import { useLocalePosts } from '../loaders/useLocalePosts'
-
-const { t } = useLocale()
-const posts = useLocalePosts()
+import { data as posts } from '../loaders/posts.data'
 
 // Categories are derived from whatever posts actually exist — no hardcoded
 // list — so a new category shows up the moment a post uses it.
 const categories = computed(() => {
-  const set = new Set(posts.value.map((p) => p.category))
+  const set = new Set(posts.map((p) => p.category))
   return Array.from(set).sort()
 })
 
@@ -17,7 +13,7 @@ const activeCategory = ref('all')
 const sortOrder = ref<'newest' | 'oldest'>('newest')
 
 const filtered = computed(() => {
-  const list = posts.value.filter(
+  const list = posts.filter(
     (p) => activeCategory.value === 'all' || p.category === activeCategory.value,
   )
   return [...list].sort((a, b) =>
@@ -27,12 +23,12 @@ const filtered = computed(() => {
 </script>
 
 <template>
-  <h1>{{ t('navBlog') }}</h1>
+  <h1>Blog</h1>
 
   <div class="controls">
     <nav class="category-filter" aria-label="Filter by category">
       <a href="#" :aria-current="activeCategory === 'all'" @click.prevent="activeCategory = 'all'">
-        {{ t('categoryAll') }}
+        ทั้งหมด
       </a>
       <a
         v-for="c in categories"
@@ -43,10 +39,10 @@ const filtered = computed(() => {
       >{{ c }}</a>
     </nav>
     <label class="sort-control">
-      {{ t('sort') }}
+      เรียงตาม
       <select v-model="sortOrder">
-        <option value="newest">{{ t('sortNewest') }}</option>
-        <option value="oldest">{{ t('sortOldest') }}</option>
+        <option value="newest">ใหม่สุด</option>
+        <option value="oldest">เก่าสุด</option>
       </select>
     </label>
   </div>
@@ -58,7 +54,7 @@ const filtered = computed(() => {
         <div class="post-meta">
           <time :datetime="post.date">{{ post.date }}</time>
           <span class="row-tag">{{ post.category }}</span>
-          <span>{{ post.readingTime }} {{ t('minRead') }}</span>
+          <span>{{ post.readingTime }} นาทีในการอ่าน</span>
         </div>
         <div class="post-title"><a :href="post.url">{{ post.title }}</a></div>
         <p class="post-desc">{{ post.description }}</p>
@@ -66,7 +62,7 @@ const filtered = computed(() => {
     </article>
   </div>
 
-  <p v-if="filtered.length === 0" class="empty-state">{{ t('emptyState') }}</p>
+  <p v-if="filtered.length === 0" class="empty-state">ยังไม่มีบทความในหมวดนี้</p>
 </template>
 
 <style scoped>

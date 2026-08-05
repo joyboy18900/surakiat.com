@@ -7,9 +7,7 @@
 -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useLocale } from '../i18n'
 
-const { t } = useLocale()
 const isLight = ref(false)
 
 onMounted(() => {
@@ -35,7 +33,7 @@ function toggle() {
   <button
     type="button"
     class="icon-link toggle-btn"
-    :aria-label="isLight ? t('switchToDark') : t('switchToLight')"
+    :aria-label="isLight ? 'สลับเป็นธีมมืด' : 'สลับเป็นธีมสว่าง'"
     @click="toggle"
   >
     <svg v-if="!isLight" width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
