@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Post title goes here · surakiat</title>
+    <link rel="icon" type="image/svg+xml" href="../logos/favicon.svg" />
+    <link rel="stylesheet" href="../colors_and_type.css" />
+    <!--
+      VitePress-ready frontmatter — copy this block verbatim into the .md
+      version of this post:
+
+      ---
+      title: Post title goes here
+      date: 2026-07-01
+      category: tech
+      cover: /assets/covers/post-sample.jpg
+      description: Short description of what this post covers and why it's worth reading.
+      readingTime: 6 min read
+      ---
+    -->
+    <style>
+      header[data-od-id="site-header"] {
+        border-bottom: var(--border-weight) solid var(--border);
+        padding: calc(var(--space-unit) * 3) 0;
+      }
+      .header-row {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 0 var(--space-unit);
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--space-unit) calc(var(--space-unit) * 3);
+      }
+      .wordmark { font-weight: 700; font-size: 1.05rem; color: var(--fg); text-decoration: none; }
+      .wordmark:hover { color: var(--fg); }
+      nav[data-od-id="site-nav"] { display: flex; gap: calc(var(--space-unit) * 2.5); font-size: 0.9rem; }
+      nav[data-od-id="site-nav"] a { color: var(--muted); text-decoration: none; }
+      nav[data-od-id="site-nav"] a:hover,
+      nav[data-od-id="site-nav"] a[aria-current="page"] {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      nav[data-od-id="site-nav"] a.icon-link { display: inline-flex; align-items: center; color: var(--muted); }
+      nav[data-od-id="site-nav"] a.icon-link:hover { color: var(--accent); }
+      nav[data-od-id="site-nav"] a.icon-link svg { display: block; fill: currentColor; }
+      main[data-od-id="main-content"] {
+        padding: calc(var(--space-unit) * 6) var(--space-unit) calc(var(--space-unit) * 10);
+      }
+
+      .back-link { display: inline-block; margin-bottom: calc(var(--space-unit) * 4); font-size: 0.85rem; }
+
+      .post-cover {
+        max-width: var(--measure);
+        margin: 0 auto calc(var(--space-unit) * 5);
+        aspect-ratio: 2.4 / 1;
+        border: var(--border-weight) solid var(--border);
+        background: var(--surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      article header { margin-bottom: calc(var(--space-unit) * 4); }
+      h1 { font-size: 1.5rem; line-height: 1.3; margin: 0 0 8px; }
+      .post-meta {
+        color: var(--muted);
+        font-size: 0.8rem;
+        display: flex;
+        gap: calc(var(--space-unit) * 2);
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .post-meta .row-tag { text-transform: uppercase; letter-spacing: 0.06em; }
+
+      article p { margin: 0 0 calc(var(--space-unit) * 2.5); }
+      article h2 {
+        font-size: 1.05rem;
+        color: var(--fg);
+        text-transform: none;
+        letter-spacing: normal;
+        font-weight: 700;
+        margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2);
+      }
+      article :is(h1, h2) + p { margin-top: 0; }
+
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface);
+        border: var(--border-weight) solid var(--border);
+        padding: 1px 5px;
+      }
+      pre {
+        background: var(--surface);
+        border: var(--border-weight) solid var(--border);
+        padding: calc(var(--space-unit) * 2);
+        overflow-x: auto;
+        margin: 0 0 calc(var(--space-unit) * 3);
+        font-size: 0.85rem;
+        line-height: 1.55;
+      }
+      pre code { background: none; border: 0; padding: 0; }
+
+      article footer {
+        border-top: var(--border-weight) solid var(--border);
+        margin-top: calc(var(--space-unit) * 6);
+        padding-top: calc(var(--space-unit) * 3);
+        font-size: 0.85rem;
+      }
+
+      footer[data-od-id="site-footer"] {
+        border-top: var(--border-weight) solid var(--border);
+        padding: calc(var(--space-unit) * 3) var(--space-unit);
+        max-width: var(--measure);
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header data-od-id="site-header">
+      <div class="header-row">
+        <a class="wordmark" href="../index.html" data-od-id="wordmark">surakiat</a>
+        <nav data-od-id="site-nav" aria-label="Main">
+          <a href="../index.html" data-od-id="nav-home">Home</a>
+          <a href="../blog.html" aria-current="page" data-od-id="nav-blog">Blog</a>
+          <a href="../about.html" data-od-id="nav-about">About</a>
+          <a href="https://github.com/joyboy18900" class="icon-link" aria-label="GitHub" data-od-id="nav-github">
+            <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" data-od-id="main-content">
+      <a class="back-link" href="../blog.html" data-od-id="back-link">&larr; Back to posts</a>
+
+      <div class="post-cover" data-od-id="post-cover" aria-hidden="true">cover image</div>
+
+      <article data-od-id="post-article">
+        <header>
+          <h1>Post title goes here</h1>
+          <div class="post-meta">
+            <time datetime="2026-07-01" data-od-id="post-date">2026-07-01</time>
+            <span class="row-tag" data-od-id="post-category">tech</span>
+            <span data-od-id="post-reading-time">6 min read</span>
+          </div>
+        </header>
+
+        <p>
+          This is a placeholder article body, styled the same way a real post
+          on this site would render: plain paragraphs, one accent color for
+          links, and a monospace treatment for anything code-shaped.
+        </p>
+
+        <p>
+          Replace this with your real writing. Inline links like
+          <a href="#">this one</a> pick up the accent color automatically, and
+          <code>inline code</code> gets a bordered monospace treatment so it
+          stays readable against the dark background.
+        </p>
+
+        <h2>A subheading</h2>
+
+        <p>
+          Longer code samples drop into a bordered block instead of running
+          inline, so they stay legible even when they wrap:
+        </p>
+
+        <pre data-od-id="post-code-block"><code>function greet(name) {
+  return `Hello, ${name}`;
+}
+
+console.log(greet('surakiat'));</code></pre>
+
+        <p>
+          (placeholder post content, replace with your real writing)
+        </p>
+
+        <footer>
+          <a href="../blog.html" data-od-id="post-footer-back">&larr; Back to posts</a>
+        </footer>
+      </article>
+    </main>
+
+    <footer data-od-id="site-footer">surakiat</footer>
+  </body>
+</html>
