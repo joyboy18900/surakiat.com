@@ -4,7 +4,7 @@ export default defineConfig({
   title: 'surakiat',
   description: 'Whole Stack Software Engineer',
   cleanUrls: true,
-  srcExclude: ['README.md', 'DESIGN.md'],
+  srcExclude: ['README.md', 'DESIGN.md', 'CLAUDE.md'],
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
