@@ -21,8 +21,8 @@ const latest = computed(() => posts.slice(0, 3))
 
   <section class="latest-posts">
     <div class="section-head">
-      <h2>บทความล่าสุด</h2>
-      <a href="/posts/">บทความทั้งหมด →</a>
+      <h2>Latest Posts</h2>
+      <a href="/posts/">All posts →</a>
     </div>
     <div v-for="post in latest" :key="post.url" class="row">
       <div class="row-meta">

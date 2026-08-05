@@ -24,15 +24,25 @@ const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
 </script>
 
 <template>
-  <a class="back-link" href="/posts/">← กลับไปหน้าบทความ</a>
+  <a class="back-link" href="/posts/">← Back to posts</a>
 
   <img class="post-cover-img" :src="cover" :alt="frontmatter.title" />
 
   <article class="post-article">
     <header>
       <div v-if="translation" class="lang-switch">
-        <button type="button" :class="{ active: !showEnglish }" @click="showEnglish = false">ไทย</button>
-        <button type="button" :class="{ active: showEnglish }" @click="showEnglish = true">English</button>
+        <button
+          type="button"
+          :class="{ active: !showEnglish }"
+          aria-label="อ่านภาษาไทย"
+          @click="showEnglish = false"
+        >🇹🇭</button>
+        <button
+          type="button"
+          :class="{ active: showEnglish }"
+          aria-label="Read in English"
+          @click="showEnglish = true"
+        >🇬🇧</button>
       </div>
 
       <h1>{{ showEnglish && translation ? translation.title : frontmatter.title }}</h1>
@@ -48,7 +58,7 @@ const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
     <div v-if="translation" v-show="showEnglish" v-html="translation.html"></div>
 
     <footer>
-      <a href="/posts/">← กลับไปหน้าบทความ</a>
+      <a href="/posts/">← Back to posts</a>
     </footer>
   </article>
 </template>
@@ -56,25 +66,23 @@ const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
 <style scoped>
 .lang-switch {
   display: inline-flex;
-  gap: calc(var(--space-unit) * 1.5);
-  font-size: 0.8rem;
-  margin-bottom: calc(var(--space-unit) * 1.5);
+  align-items: center;
+  gap: calc(var(--space-unit) * 1.25);
+  margin-bottom: calc(var(--space-unit) * 2);
 }
 .lang-switch button {
   background: none;
   border: 0;
   padding: 0;
-  font: inherit;
-  font-family: var(--font-mono);
-  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
   cursor: pointer;
+  opacity: 0.4;
 }
 .lang-switch button:hover {
-  color: var(--accent);
+  opacity: 0.7;
 }
 .lang-switch button.active {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  opacity: 1;
 }
 </style>

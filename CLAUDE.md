@@ -24,7 +24,9 @@ or `pnpm preview` (which 404s correctly like a real static host).
 
 This is a **personal site + blog**: a fully custom VitePress theme
 (`extends: undefined` — no DefaultTheme docs chrome) rendering both
-Markdown blog posts and a few hand-built pages, bilingual (Thai/English).
+Markdown blog posts and a few hand-built pages. The site itself (nav, Home,
+About, footer) is Thai-only; individual post bodies can optionally have an
+English translation toggle (see below).
 
 ### Layout dispatch (`.vitepress/theme/Layout.vue`)
 
@@ -40,49 +42,50 @@ There's no VitePress "docs" layout. `Layout.vue` reads frontmatter
 To add a new *kind* of page (not a blog post), you either add a case here
 or just let it fall through to plain `<Content/>`.
 
-### i18n: Thai is root, English is `/en/`
+### Bilingual posts: one canonical list, optional per-post English toggle
 
-VitePress's i18n requires one **root locale** (unprefixed) and every other
-locale as a **fully separate, mirrored folder tree**. There is **no
-automatic fallback** between locales — a page that doesn't exist under a
-locale's folder simply 404s there. This repo has Thai as root:
+There is **no VitePress locale/i18n config** in this repo (deliberately —
+an earlier version used VitePress's native locale-prefix i18n, which treats
+each language as a fully separate mirrored site with independent post
+lists/counts; that's the wrong model here and was removed). Instead:
 
-```
-index.md, about.md, posts/<year>/<slug>.md      → Thai (root, unprefixed)
-en/index.md, en/about.md, en/posts/<year>/<slug>.md → English (/en/ prefix)
-```
-
-Consequences baked into the code, not just convention:
-- `en/index.md` and `en/about.md` must always exist (nav is always visible),
-  but individual blog posts are free to be Thai-only — there's no
-  requirement to translate every post.
-- `LangToggle.vue` doesn't naively swap `/en/` in and out of the URL — for
-  post pages it checks both locales' content-loader data
-  (`useLocalePosts.ts` / `thPosts` / `enPosts`) to see if a translated
-  counterpart actually exists, and falls back to that locale's home if not.
-  If you change post URL structure, this matching logic
-  (`localeAgnosticKey` in `LangToggle.vue`) needs to stay in sync.
-- UI chrome strings (nav labels, "Latest Posts", empty-state text, toggle
-  `aria-label`s, etc.) live in `.vitepress/theme/i18n.ts` as a small hand-rolled
-  `{ th: {...}, en: {...} }` dictionary read via `useLocale()` — not a full
-  i18n library, and not VitePress DefaultTheme's built-in translation keys
-  (irrelevant here since the theme is fully custom).
+- Every post is a single Thai file: `posts/<year>/<slug>.md`. This is the
+  **only** routed page for that post, and the **only** post list that
+  exists anywhere (`posts.data.ts`) — there is no separate English list to
+  keep in sync, by construction.
+- A post *may* have an optional companion `posts/<year>/<slug>.en.md`
+  (same folder, `.en` suffix). It's `srcExclude`d in `config.ts` so it
+  never becomes its own routed page — it's only ever read via
+  `postTranslations.data.ts` (`createContentLoader(..., { render: true })`,
+  which compiles its markdown to HTML at build time).
+- `Post.vue` looks up a translation by stripping the trailing `.en` off the
+  loader's URL and comparing to the current route. If found, it renders a
+  small ไทย/English toggle and both bodies (`<Content/>` for Thai,
+  `v-html="translation.html"` for English) are baked into the *same* static
+  page — the toggle is pure client-side `v-show`, no navigation, no
+  fallback logic needed since there's nothing to fall back from. If no
+  companion exists, no toggle renders — the post is just Thai, which is
+  also always the default.
+- Nav, Home, About, and the footer are plain hardcoded Thai text — no
+  translation dictionary, no `useLocale()`. Bilingual support is
+  intentionally scoped to post bodies only.
 
 ### Content loaders (`.vitepress/theme/loaders/`)
 
-Post data is read at **build time** via `createContentLoader`, one loader
-per locale (`posts.th.data.ts` globs `posts/*/*.md`, `posts.en.data.ts`
-globs `en/posts/*/*.md` — the one-level-deep glob naturally excludes each
-locale's own `posts/index.md`, no manual filtering needed). `useLocalePosts.ts`
-picks the right loader's data based on the current locale. Both `Home.vue`
-(latest 3) and `BlogIndex.vue` (full list) consume this same data — don't
-duplicate the loading logic per component.
+Post data is read at **build time** via `createContentLoader`.
+`posts.data.ts` globs `posts/*/*.md` and filters out any matched `*.en.md`
+companions (the glob catches them, but they must never appear as their own
+list entries) — the one-level-deep glob naturally excludes `posts/index.md`
+itself, no extra filtering needed there. `postTranslations.data.ts` globs
+`posts/*/*.en.md` separately with `render: true` for the compiled HTML.
+Both `Home.vue` (latest 3) and `BlogIndex.vue` (full list) consume the same
+`posts.data.ts` — don't duplicate the loading logic per component.
 
 Two fields are **computed in the loader, not authored in frontmatter**:
-- **`readingTime`**: character-count based for Thai (`readingTime.ts` —
-  Thai script doesn't reliably space-delimit words, so word-count would
-  undercount it badly), word-count based for English. If you add a third
-  locale, decide which formula it needs.
+- **`readingTime`**: character-count based for the Thai body
+  (`readingTime.ts` — Thai script doesn't reliably space-delimit words, so
+  word-count would undercount it badly); the English companion (if any)
+  gets its own word-count-based reading time via the same file.
 - **Categories** shown in `BlogIndex.vue`'s filter are derived dynamically
   from whatever `category` values actually exist across posts — there is
   no hardcoded category list anywhere. A new category on a new post just

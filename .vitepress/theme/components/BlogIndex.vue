@@ -28,7 +28,7 @@ const filtered = computed(() => {
   <div class="controls">
     <nav class="category-filter" aria-label="Filter by category">
       <a href="#" :aria-current="activeCategory === 'all'" @click.prevent="activeCategory = 'all'">
-        ทั้งหมด
+        All
       </a>
       <a
         v-for="c in categories"
@@ -39,10 +39,10 @@ const filtered = computed(() => {
       >{{ c }}</a>
     </nav>
     <label class="sort-control">
-      เรียงตาม
+      Sort
       <select v-model="sortOrder">
-        <option value="newest">ใหม่สุด</option>
-        <option value="oldest">เก่าสุด</option>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
       </select>
     </label>
   </div>
@@ -54,7 +54,7 @@ const filtered = computed(() => {
         <div class="post-meta">
           <time :datetime="post.date">{{ post.date }}</time>
           <span class="row-tag">{{ post.category }}</span>
-          <span>{{ post.readingTime }} นาทีในการอ่าน</span>
+          <span>{{ post.readingTime }} min read</span>
         </div>
         <div class="post-title"><a :href="post.url">{{ post.title }}</a></div>
         <p class="post-desc">{{ post.description }}</p>
@@ -62,7 +62,7 @@ const filtered = computed(() => {
     </article>
   </div>
 
-  <p v-if="filtered.length === 0" class="empty-state">ยังไม่มีบทความในหมวดนี้</p>
+  <p v-if="filtered.length === 0" class="empty-state">No posts in this category yet.</p>
 </template>
 
 <style scoped>

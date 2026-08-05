@@ -5,5 +5,6 @@ role: Whole Stack Software Engineer
 title: surakiat
 ---
 
-ผมทำงานด้าน system design และพัฒนาซอฟต์แวร์มากว่า 5 ปี สร้างสิ่งต่าง ๆ บนเว็บ
-และเขียนบันทึกสิ่งที่ได้เรียนรู้ระหว่างทาง
+I specialize in system design and development with over 5 years of
+software engineering experience. I build things for the web and write
+about what I learn along the way.

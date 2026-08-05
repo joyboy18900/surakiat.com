@@ -20,9 +20,9 @@ const isAbout = computed(() => normalize(route.path) === '/about')
     <div class="header-row">
       <a class="wordmark" href="/">surakiat</a>
       <nav class="site-nav" aria-label="Main">
-        <a href="/" :aria-current="isHome ? 'page' : undefined">หน้าแรก</a>
+        <a href="/" :aria-current="isHome ? 'page' : undefined">Home</a>
         <a href="/posts/" :aria-current="isBlog ? 'page' : undefined">Blog</a>
-        <a href="/about" :aria-current="isAbout ? 'page' : undefined">เกี่ยวกับ</a>
+        <a href="/about" :aria-current="isAbout ? 'page' : undefined">About</a>
         <span class="nav-divider" aria-hidden="true"></span>
         <SocialLinks />
         <span class="nav-divider" aria-hidden="true"></span>

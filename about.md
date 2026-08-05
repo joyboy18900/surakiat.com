@@ -2,18 +2,20 @@
 title: About · surakiat
 ---
 
-# เกี่ยวกับ
+# About
 
 <p class="role">Whole Stack Software Engineer</p>
 
-ผมคือสุรกิตติ์ ใช้เวลาส่วนใหญ่ไปกับการสร้างซอฟต์แวร์ ศึกษาสถาปัตยกรรมระบบ
-และค้นคว้าเทคโนโลยีใหม่ ๆ
+I'm Surakiat. I spend most of my time building software, exploring system
+architecture, and researching new technologies.
 
-ผมชอบทำความเข้าใจการทำงานเบื้องหลังของสิ่งต่าง ๆ และจดบันทึกสิ่งที่สนใจไว้เรื่อย ๆ
+I enjoy understanding how things work under the hood and writing down notes
+on whatever catches my interest.
 
-หากต้องการอ่าน CV ฉบับเต็ม สามารถดูได้ที่ [cv.surakiat.com](https://cv.surakiat.com/)
+If you want to read my full CV, you can check it out at
+[cv.surakiat.com](https://cv.surakiat.com/).
 
-## กิจกรรมบน GitHub
+## GitHub Activity
 
 <a class="activity-chart-frame" href="https://github.com/joyboy18900" aria-label="surakiat's GitHub profile">
   <img
@@ -22,4 +24,4 @@ title: About · surakiat
     alt="surakiat's GitHub Activity"
   />
 </a>
-<p class="activity-note">กิจกรรมการมีส่วนร่วมแบบเรียลไทม์ ดึงข้อมูลมาจาก GitHub</p>
+<p class="activity-note">Live contribution activity, pulled from GitHub.</p>
