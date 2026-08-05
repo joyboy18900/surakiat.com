@@ -1,3 +1,3 @@
-# surakiat.me
+# surakiat.com
 
 My personal website.
