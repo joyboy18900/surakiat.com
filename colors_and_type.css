@@ -22,6 +22,18 @@ html {
   color-scheme: dark;
 }
 
+/* Light theme override — dark stays the default; toggled via
+   documentElement[data-theme="light"]. Accent stays constant across both
+   themes for brand recognition; only the neutral bg/fg/border scale flips. */
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --surface: #f0f0f0;
+  --fg: #0a0a0a;
+  --muted: #666666;
+  --border: #d9d9d9;
+  color-scheme: light;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
