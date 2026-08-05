@@ -1,0 +1,115 @@
+/* Shared header/footer chrome — ported from the synced mockup's per-page
+   <style> blocks (identical across index/about/blog/post-sample). */
+
+.site-header {
+  border-bottom: var(--border-weight) solid var(--border);
+  padding: calc(var(--space-unit) * 3) 0;
+}
+
+.header-row {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--space-unit);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-unit) calc(var(--space-unit) * 3);
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+.wordmark:hover {
+  color: var(--fg);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: calc(var(--space-unit) * 2.5);
+  font-size: 0.9rem;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover,
+.site-nav a[aria-current='page'] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+}
+.icon-link:hover {
+  color: var(--accent);
+}
+.icon-link svg {
+  display: block;
+  fill: currentColor;
+}
+
+.lang-toggle {
+  font-size: 1rem;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+  display: inline-block;
+}
+
+.social-links {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-unit) * 1.25);
+}
+
+.hero-social {
+  margin-top: var(--space-unit);
+}
+
+.site-footer {
+  border-top: var(--border-weight) solid var(--border);
+  padding: calc(var(--space-unit) * 3) var(--space-unit);
+  max-width: var(--measure);
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-unit) calc(var(--space-unit) * 2);
+}
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer a.icon-link:hover {
+  text-decoration: none;
+}

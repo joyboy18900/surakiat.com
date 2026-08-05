@@ -1,0 +1,36 @@
+/* About page — global CSS since this page renders as plain markdown
+   (generic <Content/> fallback), including raw HTML for the GitHub chart
+   embed that scoped component styles can't reach. */
+
+.role {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 calc(var(--space-unit) * 3);
+}
+
+h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2.5);
+}
+
+/* Live GitHub contribution chart, blended into the dark canvas so only the
+   accent-colored activity squares stand out (ghchart renders white cell
+   backgrounds on empty days by default). */
+.activity-chart-frame {
+  display: block;
+  background: var(--bg);
+}
+.activity-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: invert(1) hue-rotate(180deg);
+}
+.activity-note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin: calc(var(--space-unit) * 1.5) 0 0;
+}

@@ -1,0 +1,36 @@
+/* surakiat — brand tokens (text-heavy minimalist, dark-by-default)
+   Ported verbatim from colors_and_type.css. */
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --fg: #e6e6e6;
+  --muted: #8a8a8a;
+  --border: #242424;
+  --accent: #ff6500;
+  --accent-secondary: #cc5200;
+
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-body: var(--font-mono);
+
+  --radius: 0px;
+  --border-weight: 1px;
+  --space-unit: 8px;
+  --measure: 65ch;
+}
+
+html {
+  color-scheme: dark;
+}
+
+/* Light theme override — dark stays the default; toggled via
+   documentElement[data-theme="light"]. Accent stays constant across both
+   themes for brand recognition; only the neutral bg/fg/border scale flips. */
+:root[data-theme='light'] {
+  --bg: #fafafa;
+  --surface: #f0f0f0;
+  --fg: #0a0a0a;
+  --muted: #666666;
+  --border: #d9d9d9;
+  color-scheme: light;
+}
