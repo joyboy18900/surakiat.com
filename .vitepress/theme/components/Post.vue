@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useData, useRoute, Content } from 'vitepress'
 import { data as posts } from '../loaders/posts.data'
 import { data as translations } from '../loaders/postTranslations.data'
+import { formatDate } from '../formatDate'
 
 const { frontmatter } = useData()
 const route = useRoute()
@@ -51,7 +52,7 @@ const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
 
       <h1>{{ showEnglish && translation ? translation.title : frontmatter.title }}</h1>
       <div class="post-meta">
-        <time :datetime="frontmatter.date">{{ frontmatter.date }}</time>
+        <time :datetime="frontmatter.date">{{ formatDate(frontmatter.date) }}</time>
         <span class="row-tag">{{ frontmatter.category }}</span>
         <span v-if="showEnglish && translation">{{ translation.readingTime }} min read</span>
         <span v-else-if="current">{{ current.readingTime }} นาทีในการอ่าน</span>

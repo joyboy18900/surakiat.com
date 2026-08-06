@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useData, Content } from 'vitepress'
 import { data as posts } from '../loaders/posts.data'
+import { formatDate } from '../formatDate'
 import SocialLinks from './SocialLinks.vue'
 
 const { frontmatter } = useData()
@@ -26,7 +27,7 @@ const latest = computed(() => posts.slice(0, 3))
     </div>
     <div v-for="post in latest" :key="post.url" class="row">
       <div class="row-meta">
-        <time :datetime="post.date">{{ post.date }}</time>
+        <time :datetime="post.date">{{ formatDate(post.date) }}</time>
         <span class="row-tag">{{ post.category }}</span>
       </div>
       <span class="row-title"><a :href="post.url">{{ post.title }}</a></span>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { data as posts } from '../loaders/posts.data'
+import { formatDate } from '../formatDate'
 
 // Categories are derived from whatever posts actually exist — no hardcoded
 // list — so a new category shows up the moment a post uses it.
@@ -52,7 +53,7 @@ const filtered = computed(() => {
       <img class="post-cover" :src="post.cover || '/covers/default.svg'" :alt="post.title" />
       <div>
         <div class="post-meta">
-          <time :datetime="post.date">{{ post.date }}</time>
+          <time :datetime="post.date">{{ formatDate(post.date) }}</time>
           <span class="row-tag">{{ post.category }}</span>
           <span>{{ post.readingTime }} min read</span>
         </div>
