@@ -1,6 +1,6 @@
 ---
 title: เริ่มต้นบล็อกใหม่ด้วย VitePress
-date: 2026-07-01
+date: "2026-07-01"
 category: tech
 description: บันทึกการย้ายเว็บไซต์จาก HTML ธรรมดามาเป็น VitePress พร้อมระบบสองภาษา
 layout: post

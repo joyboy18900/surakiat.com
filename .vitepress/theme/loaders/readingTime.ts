@@ -2,7 +2,7 @@
 // space-delimit words, so a naive word-count formula (fine for English)
 // would badly undercount Thai text — Thai posts use a character-count
 // formula instead, English posts use word-count. Returns whole minutes;
-// components append the localized "min read" label via i18n.ts.
+// components append the "min read" / "นาทีในการอ่าน" label inline.
 
 function stripCodeFences(src: string): string {
   return src.replace(/```[\s\S]*?```/g, '')

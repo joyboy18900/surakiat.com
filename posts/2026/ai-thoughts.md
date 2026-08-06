@@ -1,6 +1,6 @@
 ---
 title: บันทึกสั้น ๆ เรื่องงานวิจัย AI
-date: 2026-06-14
+date: "2026-06-14"
 category: ai-research
 description: ความคิดเห็นสั้น ๆ หลังจากอ่านงานวิจัยด้าน AI หลายฉบับในช่วงนี้
 layout: post

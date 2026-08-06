@@ -13,11 +13,11 @@ I enjoy understanding how things work under the hood and writing down notes
 on whatever catches my interest.
 
 If you want to read my full CV, you can check it out at
-[cv.surakiat.com](https://cv.surakiat.com/).
+<a href="https://cv.surakiat.com/" target="_blank" rel="noopener noreferrer">cv.surakiat.com</a>.
 
 ## GitHub Activity
 
-<a class="activity-chart-frame" href="https://github.com/joyboy18900" aria-label="surakiat's GitHub profile">
+<a class="activity-chart-frame" href="https://github.com/joyboy18900" aria-label="surakiat's GitHub profile" target="_blank" rel="noopener noreferrer">
   <img
     class="activity-chart"
     src="https://ghchart.rshah.org/ff6500/joyboy18900"

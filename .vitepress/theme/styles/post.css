@@ -39,9 +39,13 @@
   letter-spacing: 0.06em;
 }
 
-.post-article p {
-  margin: 0 0 calc(var(--space-unit) * 2.5);
-}
+/* .post-article h2 stays post-scoped deliberately: about.css sets a plain,
+   global `h2` rule for chrome section-labels (small-caps, muted — "GitHub
+   Activity"), which is a different job from an h2 written inside a post's
+   own prose body. Generalizing this one would make post subheadings look
+   like chrome labels. Paragraph/code/pre rules below have no such
+   conflict, so they're plain global rules in base.css, applying uniformly
+   to any <Content/>-rendered markdown (Home's bio, About, post bodies). */
 .post-article h2 {
   font-size: 1.05rem;
   color: var(--fg);
@@ -49,42 +53,6 @@
   letter-spacing: normal;
   font-weight: 700;
   margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2);
-}
-.post-article :is(h1, h2) + p {
-  margin-top: 0;
-}
-
-.post-article code {
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  background: var(--surface);
-  border: var(--border-weight) solid var(--border);
-  padding: 1px 5px;
-}
-/* Fenced code blocks are wrapped by VitePress's markdown pipeline in a
-   div[class*="language-"] with a copy button + language label — those are
-   DefaultTheme decorations we don't load CSS for, so they're hidden here to
-   keep the bare bordered-<pre> look this design calls for. */
-.post-article div[class*='language-'] {
-  margin: 0 0 calc(var(--space-unit) * 3);
-}
-.post-article div[class*='language-'] .copy,
-.post-article div[class*='language-'] .lang {
-  display: none;
-}
-.post-article pre {
-  background: var(--surface);
-  border: var(--border-weight) solid var(--border);
-  padding: calc(var(--space-unit) * 2);
-  overflow-x: auto;
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.55;
-}
-.post-article pre code {
-  background: none;
-  border: 0;
-  padding: 0;
 }
 
 .post-article footer {

@@ -4,7 +4,7 @@
   "description": "Personal site of surakiat — a text-heavy, minimalist developer portfolio and blog shell.",
   "sourceUrl": "https://visionary-sunflower-dc7ae3.netlify.app/",
   "logo": {
-    "primary": "logos/favicon.svg",
+    "primary": "public/favicon.svg",
     "alternates": [],
     "notes": "Favicon only — a monospace lowercase \"s\" glyph. The header wordmark is plain monospace text: \"surakiat\", no logo mark."
   },
@@ -122,24 +122,7 @@
       "hand-drawn illustration",
       "gradients"
     ],
-    "samples": [
-      {
-        "file": "imagery/image-0.png",
-        "kind": "image"
-      },
-      {
-        "file": "imagery/image-1.png",
-        "kind": "image"
-      },
-      {
-        "file": "imagery/image-2.png",
-        "kind": "image"
-      },
-      {
-        "file": "imagery/image-3.png",
-        "kind": "image"
-      }
-    ]
+    "samples": []
   },
   "layout": {
     "radius": "0px",

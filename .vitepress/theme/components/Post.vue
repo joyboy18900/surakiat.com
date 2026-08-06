@@ -12,8 +12,10 @@ const route = useRoute()
 const current = computed(() => posts.find((p) => p.url === route.path))
 
 // Optional English companion (posts/<year>/<slug>.en.md) — matched by
-// stripping the trailing ".en" the loader's URL carries. Not every post has
-// one; when it doesn't, no toggle renders and the page is Thai-only.
+// stripping the trailing ".en" the loader's URL carries (relies on
+// cleanUrls: true in config.ts; see the note in posts.data.ts). Not every
+// post has one; when it doesn't, no toggle renders and the page is
+// Thai-only.
 const translation = computed(() =>
   translations.find((t) => t.url.replace(/\.en$/, '') === route.path),
 )
@@ -34,12 +36,14 @@ const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
         <button
           type="button"
           :class="{ active: !showEnglish }"
+          :aria-pressed="!showEnglish"
           aria-label="อ่านภาษาไทย"
           @click="showEnglish = false"
         >🇹🇭</button>
         <button
           type="button"
           :class="{ active: showEnglish }"
+          :aria-pressed="showEnglish"
           aria-label="Read in English"
           @click="showEnglish = true"
         >🇬🇧</button>

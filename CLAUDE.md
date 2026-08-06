@@ -95,8 +95,11 @@ Two fields are **computed in the loader, not authored in frontmatter**:
 
 ```yaml
 ---
-title: string          # required
-date: YYYY-MM-DD        # required — drives sort order and "latest posts"
+title: string            # required
+date: "YYYY-MM-DD"       # required, MUST be quoted — unquoted, YAML parses it as a
+                         # Date and JSON.stringify (used to serialize loader data)
+                         # turns it into a full ISO timestamp instead of YYYY-MM-DD.
+                         # Sorting still works either way; display breaks.
 category: string        # required — feeds the dynamic filter, any string works
 description: string     # required — shown in the list view
 cover: /covers/x.jpg     # optional — omit entirely if there's no cover
@@ -107,24 +110,33 @@ layout: post             # required for individual posts
 If `cover` is omitted, both `Post.vue` and `BlogIndex.vue` fall back to the
 same shared placeholder image (`public/covers/default.svg`) rather than
 hiding the cover slot — every post always shows *some* image. There is no
-`draft` frontmatter/concept: every `.md` file under `posts/`/`en/posts/` is
-live the moment it's pushed.
+`draft` frontmatter/concept: every `.md` file under `posts/` is live the
+moment it's pushed.
 
 ### CSS: scoped vs global split
 
 `.vitepress/theme/styles/` holds global CSS (`vars.css` design tokens
 including the `[data-theme="light"]` override block, `base.css` resets,
-`header-footer.css`, `post.css`, `about.css`). Components that render
-`<Content/>` (`Post.vue`, and the plain-markdown About page) **must** use
-global CSS for anything targeting the rendered markdown body — Vue's
-`scoped` styles can't reach content injected via `<Content/>`. Components
-that don't render `<Content/>` (`Home.vue`, `BlogIndex.vue`) use `<style
-scoped>` for their own page-specific CSS instead. Keep new components on
-whichever side of this split matches whether they render `<Content/>`.
+`header-footer.css`, `post.css`, `about.css`). **`Home.vue` and `about.md`
+(via the generic `<Content/>` fallback) both render markdown body content**,
+same as `Post.vue` — any of the three can contain a bio/prose paragraph,
+inline code, or a link. Prose-level typography that needs to reach that
+content (`p` margins, `code`/`pre` styling, the fenced-code-block wrapper
+cleanup) lives as **plain, unscoped selectors in `base.css`** for exactly
+this reason — Vue's `scoped` styles can't reach content injected via
+`<Content/>`, so scoping any of this to one component would silently fail
+to style the same markup rendered by another. `BlogIndex.vue` is the only
+component that doesn't render `<Content/>` at all, so it's the only one
+that keeps its CSS fully `<style scoped>`. `Post.vue`'s own `.post-article
+h2` override is the one deliberate exception left component-scoped —
+`about.css` sets a plain global `h2` for chrome section-labels
+(small-caps, muted), which is a different job from an `h2` written inside
+a post's own prose, so generalizing it would make post subheadings look
+like chrome labels.
 
 Fenced code blocks in markdown get wrapped by VitePress's own pipeline in a
 `div[class*="language-"]` with a copy button + language label — DefaultTheme
-decorations this project doesn't load CSS for, so `post.css` explicitly
+decorations this project doesn't load CSS for, so `base.css` explicitly
 hides `.copy`/`.lang` rather than leaving them unstyled.
 
 ### Design source of truth

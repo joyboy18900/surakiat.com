@@ -51,6 +51,48 @@ hr, .border {
   padding: calc(var(--space-unit) * 6) var(--space-unit) calc(var(--space-unit) * 10);
 }
 
+/* Prose typography for any <Content/>-rendered markdown — Home's bio,
+   About's body, and post bodies all go through this, not just posts, so
+   these are plain global rules rather than scoped to one component. */
+p {
+  margin: 0 0 calc(var(--space-unit) * 2.5);
+}
+:is(h1, h2) + p {
+  margin-top: 0;
+}
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--surface);
+  border: var(--border-weight) solid var(--border);
+  padding: 1px 5px;
+}
+/* Fenced code blocks are wrapped by VitePress's markdown pipeline in a
+   div[class*="language-"] with a copy button + language label — those are
+   DefaultTheme decorations we don't load CSS for, so they're hidden here to
+   keep the bare bordered-<pre> look this design calls for. */
+div[class*='language-'] {
+  margin: 0 0 calc(var(--space-unit) * 3);
+}
+div[class*='language-'] .copy,
+div[class*='language-'] .lang {
+  display: none;
+}
+pre {
+  background: var(--surface);
+  border: var(--border-weight) solid var(--border);
+  padding: calc(var(--space-unit) * 2);
+  overflow-x: auto;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
 /* No gradients, no rounded floating cards, no drop shadows, no decorative icons. */
 * {
   border-radius: var(--radius);
