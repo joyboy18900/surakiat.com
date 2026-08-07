@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import SocialLinks from './SocialLinks.vue'
 import ThemeToggle from './ThemeToggle.vue'
@@ -13,13 +13,31 @@ function normalize(path: string): string {
 const isHome = computed(() => normalize(route.path) === '')
 const isBlog = computed(() => normalize(route.path).startsWith('/posts'))
 const isAbout = computed(() => normalize(route.path) === '/about')
+
+// Mobile nav open/closed state. VitePress is an SPA, so a route change
+// doesn't reload the page/reset local state — close explicitly on navigate.
+const isOpen = ref(false)
+watch(() => route.path, () => {
+  isOpen.value = false
+})
 </script>
 
 <template>
-  <header class="site-header">
+  <header class="site-header" :class="{ 'nav-open': isOpen }">
     <div class="header-row">
       <a class="wordmark" href="/">surakiat</a>
-      <nav class="site-nav" aria-label="Main">
+      <button
+        type="button"
+        class="nav-toggle"
+        :aria-expanded="isOpen"
+        aria-controls="site-nav"
+        aria-label="Menu"
+        @click="isOpen = !isOpen"
+      >
+        <svg v-if="!isOpen" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="4" width="16" height="1.6"/><rect x="2" y="9.2" width="16" height="1.6"/><rect x="2" y="14.4" width="16" height="1.6"/></svg>
+        <svg v-else width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main" @click="isOpen = false">
         <a href="/" :aria-current="isHome ? 'page' : undefined">Home</a>
         <a href="/posts/" :aria-current="isBlog ? 'page' : undefined">Blog</a>
         <a href="/about" :aria-current="isAbout ? 'page' : undefined">About</a>
