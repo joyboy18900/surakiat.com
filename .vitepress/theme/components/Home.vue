@@ -36,18 +36,13 @@ const latest = computed(() => posts.slice(0, 3))
 </template>
 
 <style scoped>
-.bio, .latest-posts {
+.latest-posts {
   margin-bottom: calc(var(--space-unit) * 7);
 }
 .role {
   color: var(--muted);
   font-size: 0.9rem;
   margin: 0 0 calc(var(--space-unit) * 3);
-}
-.section-divider {
-  border: 0;
-  border-top: var(--border-weight) solid var(--border);
-  margin: calc(var(--space-unit) * 3.5) 0;
 }
 .section-head {
   display: flex;

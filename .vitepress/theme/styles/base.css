@@ -41,6 +41,16 @@ hr, .border {
   border-width: var(--border-weight);
 }
 
+/* Shared section-break divider — used both by Home.vue's template hr and
+   raw <hr> markup in markdown (about.md), so it has to be global rather
+   than scoped to either component. One rule keeps every hard section break
+   on the site at the same, provably identical spacing. */
+.section-divider {
+  border: 0;
+  border-top: var(--border-weight) solid var(--border);
+  margin: calc(var(--space-unit) * 3.5) 0;
+}
+
 .muted, small, time, .meta {
   color: var(--muted);
 }

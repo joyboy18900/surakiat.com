@@ -13,7 +13,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
-  margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2.5);
+  margin: 0 0 calc(var(--space-unit) * 2.5);
 }
 
 /* Live GitHub contribution chart, blended into the dark canvas so only the
@@ -28,9 +28,4 @@ h2 {
   width: 100%;
   height: auto;
   filter: invert(1) hue-rotate(180deg);
-}
-.activity-note {
-  color: var(--muted);
-  font-size: 0.78rem;
-  margin: calc(var(--space-unit) * 1.5) 0 0;
 }

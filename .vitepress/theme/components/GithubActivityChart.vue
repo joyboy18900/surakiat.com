@@ -21,5 +21,4 @@ import { GITHUB_USERNAME, GITHUB_PROFILE_URL, ACCENT_COLOR } from '../constants'
       alt="surakiat's GitHub Activity"
     />
   </a>
-  <p class="activity-note">Live contribution activity, pulled from GitHub.</p>
 </template>

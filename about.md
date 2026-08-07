@@ -15,6 +15,8 @@ on whatever catches my interest.
 If you want to read my full CV, you can check it out at
 <a href="https://cv.surakiat.com/" target="_blank" rel="noopener noreferrer">cv.surakiat.com</a>.
 
+<hr class="section-divider" />
+
 ## GitHub Activity
 
 <GithubActivityChart />
