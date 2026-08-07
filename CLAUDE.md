@@ -91,6 +91,14 @@ Two fields are **computed in the loader, not authored in frontmatter**:
   no hardcoded category list anywhere. A new category on a new post just
   shows up.
 
+### Search (`.vitepress/theme/components/Search.vue`)
+
+Cmd/Ctrl+K modal, reads `posts.data.ts` like `Home.vue`/`BlogIndex.vue` do.
+Matching is substring-based with a small hand-rolled relevance weighting
+(title > category > description), not a tokenized index — Thai text
+doesn't space-delimit words, so word-based matching would undercount it
+(same reason `readingTime` above is character-count based).
+
 ### Post frontmatter contract
 
 ```yaml

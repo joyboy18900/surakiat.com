@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import SocialLinks from './SocialLinks.vue'
+import Search from './Search.vue'
 import ThemeToggle from './ThemeToggle.vue'
 
 const route = useRoute()
@@ -43,6 +44,8 @@ watch(() => route.path, () => {
         <a href="/about" :aria-current="isAbout ? 'page' : undefined">About</a>
         <span class="nav-divider" aria-hidden="true"></span>
         <SocialLinks />
+        <span class="nav-divider" aria-hidden="true"></span>
+        <Search />
         <span class="nav-divider" aria-hidden="true"></span>
         <ThemeToggle />
       </nav>
