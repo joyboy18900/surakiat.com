@@ -4,6 +4,7 @@
 export const GITHUB_USERNAME = 'joyboy18900'
 export const GITHUB_PROFILE_URL = `https://github.com/${GITHUB_USERNAME}`
 export const GITHUB_REPO_URL = `https://github.com/${GITHUB_USERNAME}/surakiat.com`
+export const LINKEDIN_PROFILE_URL = `https://www.linkedin.com/in/surakiat/`
 
 // Matches vars.css's --accent. Duplicated here (rather than reading the CSS
 // custom property) because ghchart.rshah.org needs the hex baked into its
