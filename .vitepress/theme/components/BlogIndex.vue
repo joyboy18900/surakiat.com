@@ -3,8 +3,8 @@ import { ref, computed } from 'vue'
 import { data as posts } from '../loaders/posts.data'
 import { formatDate } from '../formatDate'
 
-// Categories are derived from whatever posts actually exist — no hardcoded
-// list — so a new category shows up the moment a post uses it.
+// Categories are derived from whatever posts actually exist - no hardcoded
+// list - so a new category shows up the moment a post uses it.
 const categories = computed(() => {
   const set = new Set(posts.map((p) => p.category))
   return Array.from(set).sort()

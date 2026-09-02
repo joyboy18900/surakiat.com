@@ -1,4 +1,4 @@
-/* surakiat — brand tokens (text-heavy minimalist, dark-by-default)
+/* surakiat - brand tokens (text-heavy minimalist, dark-by-default)
    Ported verbatim from colors_and_type.css. */
 
 :root {
@@ -23,7 +23,7 @@ html {
   color-scheme: dark;
 }
 
-/* Light theme override — dark stays the default; toggled via
+/* Light theme override - dark stays the default; toggled via
    documentElement[data-theme="light"]. Accent stays constant across both
    themes for brand recognition; only the neutral bg/fg/border scale flips. */
 :root[data-theme='light'] {

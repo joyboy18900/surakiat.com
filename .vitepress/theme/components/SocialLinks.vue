@@ -1,5 +1,5 @@
 <!--
-  Shared GitHub/X/Facebook/LinkedIn icon row — used in the nav, the home
+  Shared GitHub/X/Facebook/LinkedIn icon row - used in the nav, the home
   hero, and the footer. X/Facebook/LinkedIn are placeholders (#) until real
   profile URLs are supplied. All open in a new tab since they navigate away
   from the site.

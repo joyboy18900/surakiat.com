@@ -1,12 +1,12 @@
 {
   "name": "surakiat",
   "tagline": "Software Engineer / Web Developer",
-  "description": "Personal site of surakiat — a text-heavy, minimalist developer portfolio and blog shell.",
+  "description": "Personal site of surakiat - a text-heavy, minimalist developer portfolio and blog shell.",
   "sourceUrl": "https://visionary-sunflower-dc7ae3.netlify.app/",
   "logo": {
     "primary": "public/favicon.svg",
     "alternates": [],
-    "notes": "Favicon only — a monospace lowercase \"s\" glyph. The header wordmark is plain monospace text: \"surakiat\", no logo mark."
+    "notes": "Favicon only - a monospace lowercase \"s\" glyph. The header wordmark is plain monospace text: \"surakiat\", no logo mark."
   },
   "colors": [
     {
@@ -14,21 +14,21 @@
       "hex": "#0a0a0a",
       "oklch": "",
       "name": "Background",
-      "usage": "page canvas — near-black terminal/editor vibe"
+      "usage": "page canvas - near-black terminal/editor vibe"
     },
     {
       "role": "surface",
       "hex": "#141414",
       "oklch": "",
       "name": "Surface",
-      "usage": "rare raised surfaces (kept minimal — most content sits flat on background)"
+      "usage": "rare raised surfaces (kept minimal - most content sits flat on background)"
     },
     {
       "role": "foreground",
       "hex": "#e6e6e6",
       "oklch": "",
       "name": "Foreground",
-      "usage": "body text — off-white"
+      "usage": "body text - off-white"
     },
     {
       "role": "muted",
@@ -49,14 +49,14 @@
       "hex": "#ff6500",
       "oklch": "",
       "name": "Accent",
-      "usage": "the single sharp accent — links, active states, post titles"
+      "usage": "the single sharp accent - links, active states, post titles"
     },
     {
       "role": "accent-secondary",
       "hex": "#cc5200",
       "oklch": "",
       "name": "Accent secondary",
-      "usage": "visited links / hover state — dimmed accent"
+      "usage": "visited links / hover state - dimmed accent"
     }
   ],
   "typography": {
@@ -114,7 +114,7 @@
     }
   },
   "imagery": {
-    "style": "None — text-only. No hero photography or decorative illustration.",
+    "style": "None - text-only. No hero photography or decorative illustration.",
     "subjects": [],
     "treatment": "",
     "avoid": [

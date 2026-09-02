@@ -1,6 +1,6 @@
 // Reading-time estimates for post frontmatter. Thai script doesn't reliably
 // space-delimit words, so a naive word-count formula (fine for English)
-// would badly undercount Thai text — Thai posts use a character-count
+// would badly undercount Thai text - Thai posts use a character-count
 // formula instead, English posts use word-count. Returns whole minutes;
 // components append the "min read" / "นาทีในการอ่าน" label inline.
 

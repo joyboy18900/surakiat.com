@@ -7,7 +7,7 @@ export interface PostData {
   // Must be quoted in frontmatter (date: "2026-06-14"). Unquoted, YAML
   // parses it as a native Date, which JSON.stringify (used to serialize
   // this loader's data) turns into a full ISO timestamp instead of
-  // YYYY-MM-DD — sorting still works either way, but display breaks.
+  // YYYY-MM-DD - sorting still works either way, but display breaks.
   date: string
   category: string
   description: string
@@ -19,9 +19,9 @@ declare const data: PostData[]
 export { data }
 
 // Glob also matches each post's optional *.en.md companion file (they live
-// in the same folder) — those must never appear as their own list entries,
+// in the same folder) - those must never appear as their own list entries,
 // so they're filtered out here. Relies on cleanUrls: true (config.ts)
-// stripping only the .md extension and leaving the .en suffix intact —
+// stripping only the .md extension and leaving the .en suffix intact -
 // if cleanUrls is ever turned off, this filter needs revisiting.
 // See postTranslations.data.ts for how the companion's content actually
 // gets used (an in-place toggle on the Thai post page).

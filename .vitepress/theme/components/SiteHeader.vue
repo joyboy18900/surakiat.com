@@ -16,7 +16,7 @@ const isBlog = computed(() => normalize(route.path).startsWith('/posts'))
 const isAbout = computed(() => normalize(route.path) === '/about')
 
 // Mobile nav open/closed state. VitePress is an SPA, so a route change
-// doesn't reload the page/reset local state — close explicitly on navigate.
+// doesn't reload the page/reset local state - close explicitly on navigate.
 const isOpen = ref(false)
 watch(() => route.path, () => {
   isOpen.value = false
