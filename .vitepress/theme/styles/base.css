@@ -51,6 +51,33 @@ hr, .border {
   margin: calc(var(--space-unit) * 3.5) 0;
 }
 
+/* Section intro note. Raw <p class="section-note"> in markdown. See RECIPES.md. */
+.section-note {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: calc(var(--space-unit) * 2);
+  margin: calc(var(--space-unit) * 5) 0;
+  text-align: left;
+  font-size: 0.9rem;
+}
+.section-note::before,
+.section-note::after {
+  content: "";
+  flex: 0 0 calc(var(--space-unit) * 4);
+  border-top: var(--border-weight) solid var(--border);
+}
+
+/* Drop cap via raw <p class="dropcap"> in markdown. Latin script only. See RECIPES.md. */
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.1em;
+  line-height: 0.82;
+  padding-right: 0.06em;
+  font-weight: 700;
+  color: var(--fg);
+}
+
 .muted, small, time, .meta {
   color: var(--muted);
 }
@@ -101,6 +128,16 @@ pre code {
   background: none;
   border: 0;
   padding: 0;
+}
+/* Map Shiki's per-token --shiki-* vars to color; DefaultTheme normally does
+   this and this project doesn't load it. Dark default, light via [data-theme]. */
+.shiki,
+.shiki span {
+  color: var(--shiki-dark);
+}
+:root[data-theme='light'] .shiki,
+:root[data-theme='light'] .shiki span {
+  color: var(--shiki-light);
 }
 
 /* No gradients, no rounded floating cards, no drop shadows, no decorative icons. */

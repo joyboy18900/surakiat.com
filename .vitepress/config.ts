@@ -5,12 +5,12 @@ export default defineConfig({
   title: 'surakiat',
   description: 'Whole Stack Software Engineer',
   cleanUrls: true,
-  // README/DESIGN/CLAUDE docs, and per-post English companion files, are
-  // never routed as their own pages. Companions are only ever read via
+  // README/DESIGN/CLAUDE/RECIPES docs, and per-post English companion files,
+  // are never routed as their own pages. Companions are only ever read via
   // postTranslations.data.ts and shown as an in-place toggle on the Thai post.
   // _drafts/ holds parked posts kept out of the build; the posts.data.ts glob
   // (posts/*/*.md) never sees them, and this keeps them from being routed too.
-  srcExclude: ['README.md', 'DESIGN.md', 'CLAUDE.md', 'posts/**/*.en.md', '_drafts/**'],
+  srcExclude: ['README.md', 'DESIGN.md', 'CLAUDE.md', 'RECIPES.md', 'posts/**/*.en.md', '_drafts/**'],
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
