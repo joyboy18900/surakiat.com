@@ -20,23 +20,23 @@ colors:
 
 *Software Engineer / Web Developer*
 
-Personal site of surakiat — a text-heavy, minimalist developer portfolio and blog shell.
+Personal site of surakiat - a text-heavy, minimalist developer portfolio and blog shell.
 
 ## Color Palette
 
 | Role | Name | Hex | Usage |
 | --- | --- | --- | --- |
-| background | Background | `#0a0a0a` | page canvas — near-black terminal/editor vibe |
-| surface | Surface | `#141414` | rare raised surfaces (kept minimal — most content sits flat on background) |
-| foreground | Foreground | `#e6e6e6` | body text — off-white |
+| background | Background | `#0a0a0a` | page canvas - near-black terminal/editor vibe |
+| surface | Surface | `#141414` | rare raised surfaces (kept minimal - most content sits flat on background) |
+| foreground | Foreground | `#e6e6e6` | body text - off-white |
 | muted | Muted | `#8a8a8a` | secondary text, metadata, dates |
 | border | Border | `#242424` | hairlines / dividers only |
-| accent | Accent | `#ff6500` | the single sharp accent — links, active states, post titles |
-| accent-secondary | Accent secondary | `#cc5200` | visited links / hover state — dimmed accent |
+| accent | Accent | `#ff6500` | the single sharp accent - links, active states, post titles |
+| accent-secondary | Accent secondary | `#cc5200` | visited links / hover state - dimmed accent |
 
 ## Typography
-- **Display:** ui-monospace — weights 400, 700 — fallbacks: SFMono-Regular, Menlo, Monaco, Consolas, monospace
-- **Body:** ui-monospace — weights 400, 700 — fallbacks: SFMono-Regular, Menlo, Monaco, Consolas, monospace
+- **Display:** ui-monospace - weights 400, 700 - fallbacks: SFMono-Regular, Menlo, Monaco, Consolas, monospace
+- **Body:** ui-monospace - weights 400, 700 - fallbacks: SFMono-Regular, Menlo, Monaco, Consolas, monospace
 
 ## Voice & Tone
 
@@ -52,7 +52,7 @@ Personal site of surakiat — a text-heavy, minimalist developer portfolio and b
 
 ## Imagery
 
-- **Style:** None — text-only. No hero photography or decorative illustration.
+- **Style:** None - text-only. No hero photography or decorative illustration.
 - **Subjects:** (none yet)
 - **Treatment:** (none yet)
 - **Avoid:** stock photography, hand-drawn illustration, gradients

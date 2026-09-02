@@ -1,4 +1,4 @@
-/* Shared header/footer chrome — ported from the synced mockup's per-page
+/* Shared header/footer chrome - ported from the synced mockup's per-page
    <style> blocks (identical across index/about/blog/post-sample). */
 
 .site-header {
@@ -82,7 +82,7 @@
   margin-top: var(--space-unit);
 }
 
-/* Mobile/tablet nav — a hamburger collapses the full nav into a stacked,
+/* Mobile/tablet nav - a hamburger collapses the full nav into a stacked,
    touch-friendly panel below 768px (tablet-portrait checkpoint); the inline
    nav above that width is untouched. */
 .nav-toggle {

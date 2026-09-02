@@ -1,5 +1,5 @@
 <!--
-  GitHub contribution chart embed — used in about.md. Registered as a
+  GitHub contribution chart embed - used in about.md. Registered as a
   global component (see theme/index.ts's enhanceApp) so it's usable
   directly inside plain Markdown as <GithubActivityChart />.
 -->

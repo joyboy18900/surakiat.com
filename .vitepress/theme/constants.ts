@@ -1,6 +1,6 @@
 // Single source of truth for values that were previously typed out by hand
 // in multiple places (SocialLinks.vue, SiteFooter.vue, about.md's GitHub
-// chart embed) — no behavior change, just removing the duplication.
+// chart embed) - no behavior change, just removing the duplication.
 export const GITHUB_USERNAME = 'joyboy18900'
 export const GITHUB_PROFILE_URL = `https://github.com/${GITHUB_USERNAME}`
 export const GITHUB_REPO_URL = `https://github.com/${GITHUB_USERNAME}/surakiat.com`

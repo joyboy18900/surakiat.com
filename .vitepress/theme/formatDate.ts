@@ -4,7 +4,7 @@
 // handled correctly instead of silently trusting whatever numbers were
 // typed. timeZone: 'UTC' matters here: "YYYY-MM-DD" parses as UTC
 // midnight, and formatting it back in the viewer's local timezone can
-// roll the displayed day back by one west of UTC — forcing UTC on both
+// roll the displayed day back by one west of UTC - forcing UTC on both
 // ends keeps the displayed date exactly what was authored.
 const formatter = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',

@@ -9,10 +9,10 @@ const { frontmatter } = useData()
 const route = useRoute()
 
 // Reading time lives on the content-loader entry (computed at build time),
-// not in frontmatter — look this page up by URL to display it.
+// not in frontmatter - look this page up by URL to display it.
 const current = computed(() => posts.find((p) => p.url === route.path))
 
-// Optional English companion (posts/<year>/<slug>.en.md) — matched by
+// Optional English companion (posts/<year>/<slug>.en.md) - matched by
 // stripping the trailing ".en" the loader's URL carries (relies on
 // cleanUrls: true in config.ts; see the note in posts.data.ts). Not every
 // post has one; when it doesn't, no toggle renders and the page is

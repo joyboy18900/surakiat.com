@@ -5,3 +5,7 @@ node_modules
 *.log
 .env
 .env.*
+
+# Parked/unpublished posts - kept locally, excluded from the VitePress
+# build via srcExclude in .vitepress/config.ts
+_drafts/

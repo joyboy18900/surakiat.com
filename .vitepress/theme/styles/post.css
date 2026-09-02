@@ -1,4 +1,4 @@
-/* Individual post page — global (not scoped) because the article body
+/* Individual post page - global (not scoped) because the article body
    comes through VitePress's <Content/>, which scoped styles can't reach. */
 
 .back-link {
@@ -40,7 +40,7 @@
 }
 
 /* .post-article h2 stays post-scoped deliberately: about.css sets a plain,
-   global `h2` rule for chrome section-labels (small-caps, muted — "GitHub
+   global `h2` rule for chrome section-labels (small-caps, muted - "GitHub
    Activity"), which is a different job from an h2 written inside a post's
    own prose body. Generalizing this one would make post subheadings look
    like chrome labels. Paragraph/code/pre rules below have no such

@@ -1,4 +1,4 @@
-/* About page — global CSS since this page renders as plain markdown
+/* About page - global CSS since this page renders as plain markdown
    (generic <Content/> fallback), including raw HTML for the GitHub chart
    embed that scoped component styles can't reach. */
 
