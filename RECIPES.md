@@ -1,7 +1,8 @@
 # Text styles
 
-Drop one of these into a post as raw HTML, with a blank line above and
-below it. Swap in your own text.
+Drop one of these into a post, with a blank line above and below it.
+Section note and drop cap are raw HTML; the callout is a plain markdown
+quote. Swap in your own text.
 
 ## Section note
 
@@ -29,24 +30,23 @@ A large first letter that the first lines wrap around. English text only.
 <p class="dropcap">The first paragraph of the post goes here</p>
 ```
 
-## Highlight
+## Callout
 
-An accent rule down the left with a filled background, the line in bold.
-Text keeps the normal colour, so it follows the theme; only the left rule
-is the accent. Use it for one standalone statement - a key line or a
-lead-in above a section. It needs the class, so it is raw HTML on a single
-line.
+An accent rule down the left with a filled background. Text keeps the
+normal colour, so it follows the theme; only the left rule is the accent.
+Use it for a lead-in above a section, or any passage you want set apart.
+It is a plain markdown quote, so `**bold**` and `` `code` `` work inside
+it - bold a whole line to make it read as a key statement.
 
 ```text
-┃  ONE KEY LINE, SET APART IN BOLD
+┃  a set-apart passage sits here, with the accent
+┃  rule running down the left edge.
 ```
 
-```html
-<blockquote class="highlight">One line, set apart in bold</blockquote>
+```md
+> A passage you want set apart goes here. Bold a whole line
+> with **double asterisks** for a key statement.
 ```
-
-Markdown is not processed inside raw HTML - if you need a code term in
-there, write `<code>`, not backticks.
 
 ---
 
