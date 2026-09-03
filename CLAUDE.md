@@ -23,8 +23,8 @@ or `pnpm preview` (which 404s correctly like a real static host).
 ## Architecture
 
 This is a **personal site + blog**: a fully custom VitePress theme
-(`extends: undefined` - no DefaultTheme docs chrome) rendering both
-Markdown blog posts and a few hand-built pages. The site itself (nav, Home,
+(its own `Layout`, no DefaultTheme import - so none of the docs chrome)
+rendering both Markdown blog posts and a few hand-built pages. The site itself (nav, Home,
 About, footer) is Thai-only; individual post bodies can optionally have an
 English translation toggle (see below).
 
