@@ -97,6 +97,24 @@ p {
 :is(h1, h2) + p {
   margin-top: 0;
 }
+/* Quote block: an accent rule down the left and a surface fill, flat and
+   square like the rest of the site (no rounding, no gradient - see the
+   note at the foot of this file). Text stays the normal body colour so it
+   follows the theme; only the left rule carries the accent. `.highlight`
+   sets the line in bold for one standalone statement - written as a raw
+   <blockquote class="highlight">. See RECIPES.md. */
+blockquote {
+  margin: calc(var(--space-unit) * 3) 0;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2.5);
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+}
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+blockquote.highlight {
+  font-weight: 700;
+}
 code {
   font-family: var(--font-mono);
   font-size: 0.85em;
