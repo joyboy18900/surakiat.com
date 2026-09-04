@@ -3,10 +3,8 @@ import { ref, computed } from 'vue'
 import { data as posts } from '../loaders/posts.data'
 import { formatDate } from '../formatDate'
 
-// Categories are derived from whatever posts actually exist - no hardcoded
-// list - so a new category shows up the moment a post uses it.
 const categories = computed(() => {
-  const set = new Set(posts.map((p) => p.category))
+  const set = new Set(posts.flatMap((p) => p.categories))
   return Array.from(set).sort()
 })
 
@@ -15,7 +13,7 @@ const sortOrder = ref<'newest' | 'oldest'>('newest')
 
 const filtered = computed(() => {
   const list = posts.filter(
-    (p) => activeCategory.value === 'all' || p.category === activeCategory.value,
+    (p) => activeCategory.value === 'all' || p.categories.includes(activeCategory.value),
   )
   return [...list].sort((a, b) =>
     sortOrder.value === 'oldest' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date),
@@ -54,7 +52,7 @@ const filtered = computed(() => {
       <div>
         <div class="post-meta">
           <time :datetime="post.date">{{ formatDate(post.date) }}</time>
-          <span class="row-tag">{{ post.category }}</span>
+          <span v-for="c in post.categories" :key="c" class="row-tag">{{ c }}</span>
           <span>{{ post.readingTime }} min read</span>
         </div>
         <div class="post-title"><a :href="post.url">{{ post.title }}</a></div>

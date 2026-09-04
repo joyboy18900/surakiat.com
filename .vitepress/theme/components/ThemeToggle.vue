@@ -1,10 +1,3 @@
-<!--
-  Single dark/light toggle button - only one icon renders at a time
-  (v-if/v-else), unlike the Open Design mockup where both icons were static
-  markup and toggled via a `hidden` attribute the preview never executed.
-  Actual persistence/no-flash-on-load is handled by the blocking inline
-  script in config.ts's `head` (this component only handles the click).
--->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
@@ -23,9 +16,7 @@ function toggle() {
   }
   try {
     localStorage.setItem('theme', isLight.value ? 'light' : 'dark')
-  } catch {
-    // localStorage unavailable (private browsing, etc.) - theme just won't persist.
-  }
+  } catch {}
 }
 </script>
 

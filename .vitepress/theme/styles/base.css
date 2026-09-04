@@ -1,5 +1,3 @@
-/* surakiat - base resets, ported from colors_and_type.css */
-
 body {
   background: var(--bg);
   color: var(--fg);
@@ -14,8 +12,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Shared page-heading size (home/about/blog-index); per-page components
-   override the margin via scoped styles where the surrounding layout differs. */
 h1 {
   font-size: 1.375rem;
   margin: 0 0 4px;
@@ -41,17 +37,12 @@ hr, .border {
   border-width: var(--border-weight);
 }
 
-/* Shared section-break divider - used both by Home.vue's template hr and
-   raw <hr> markup in markdown (about.md), so it has to be global rather
-   than scoped to either component. One rule keeps every hard section break
-   on the site at the same, provably identical spacing. */
 .section-divider {
   border: 0;
   border-top: var(--border-weight) solid var(--border);
   margin: calc(var(--space-unit) * 3.5) 0;
 }
 
-/* Section intro note. Raw <p class="section-note"> in markdown. See RECIPES.md. */
 .section-note {
   display: flex;
   align-items: center;
@@ -68,7 +59,6 @@ hr, .border {
   border-top: var(--border-weight) solid var(--border);
 }
 
-/* Drop cap via raw <p class="dropcap"> in markdown. Latin script only. See RECIPES.md. */
 .dropcap::first-letter {
   float: left;
   font-size: 3.1em;
@@ -88,21 +78,12 @@ hr, .border {
   padding: calc(var(--space-unit) * 6) var(--space-unit) calc(var(--space-unit) * 10);
 }
 
-/* Prose typography for any <Content/>-rendered markdown - Home's bio,
-   About's body, and post bodies all go through this, not just posts, so
-   these are plain global rules rather than scoped to one component. */
 p {
   margin: 0 0 calc(var(--space-unit) * 2.5);
 }
 :is(h1, h2) + p {
   margin-top: 0;
 }
-/* Quote block: an accent rule down the left and a surface fill, flat and
-   square like the rest of the site (no rounding, no gradient - see the
-   note at the foot of this file). Text stays the normal body colour so it
-   follows the theme; only the left rule carries the accent. Written as a
-   plain markdown `>` quote; bold a line inside with `**...**`. See
-   RECIPES.md. */
 blockquote {
   margin: calc(var(--space-unit) * 3) 0;
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2.5);
@@ -119,10 +100,6 @@ code {
   border: var(--border-weight) solid var(--border);
   padding: 1px 5px;
 }
-/* Fenced code blocks are wrapped by VitePress's markdown pipeline in a
-   div[class*="language-"] with a copy button + language label - those are
-   DefaultTheme decorations we don't load CSS for, so they're hidden here to
-   keep the bare bordered-<pre> look this design calls for. */
 div[class*='language-'] {
   margin: 0 0 calc(var(--space-unit) * 3);
 }
@@ -144,8 +121,6 @@ pre code {
   border: 0;
   padding: 0;
 }
-/* Map Shiki's per-token --shiki-* vars to color; DefaultTheme normally does
-   this and this project doesn't load it. Dark default, light via [data-theme]. */
 .shiki,
 .shiki span {
   color: var(--shiki-dark);
@@ -155,7 +130,6 @@ pre code {
   color: var(--shiki-light);
 }
 
-/* No gradients, no rounded floating cards, no drop shadows, no decorative icons. */
 * {
   border-radius: var(--radius);
   box-shadow: none;

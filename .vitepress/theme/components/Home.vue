@@ -28,7 +28,7 @@ const latest = computed(() => posts.slice(0, 3))
     <div v-for="post in latest" :key="post.url" class="row">
       <div class="row-meta">
         <time :datetime="post.date">{{ formatDate(post.date) }}</time>
-        <span class="row-tag">{{ post.category }}</span>
+        <span v-for="c in post.categories" :key="c" class="row-tag">{{ c }}</span>
       </div>
       <span class="row-title"><a :href="post.url">{{ post.title }}</a></span>
     </div>

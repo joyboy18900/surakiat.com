@@ -8,15 +8,8 @@ import { formatDate } from '../formatDate'
 const { frontmatter } = useData()
 const route = useRoute()
 
-// Reading time lives on the content-loader entry (computed at build time),
-// not in frontmatter - look this page up by URL to display it.
 const current = computed(() => posts.find((p) => p.url === route.path))
 
-// Optional English companion (posts/<year>/<slug>.en.md) - matched by
-// stripping the trailing ".en" the loader's URL carries (relies on
-// cleanUrls: true in config.ts; see the note in posts.data.ts). Not every
-// post has one; when it doesn't, no toggle renders and the page is
-// Thai-only.
 const translation = computed(() =>
   translations.find((t) => t.url.replace(/\.en$/, '') === route.path),
 )
@@ -24,6 +17,8 @@ const translation = computed(() =>
 const showEnglish = ref(false)
 
 const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
+
+const categories = computed<string[]>(() => frontmatter.value.categories ?? [])
 </script>
 
 <template>
@@ -53,7 +48,7 @@ const cover = computed(() => frontmatter.value.cover || '/covers/default.svg')
       <h1>{{ showEnglish && translation ? translation.title : frontmatter.title }}</h1>
       <div class="post-meta">
         <time :datetime="frontmatter.date">{{ formatDate(frontmatter.date) }}</time>
-        <span class="row-tag">{{ frontmatter.category }}</span>
+        <span v-for="c in categories" :key="c" class="row-tag">{{ c }}</span>
         <span v-if="showEnglish && translation">{{ translation.readingTime }} min read</span>
         <span v-else-if="current">{{ current.readingTime }} นาทีในการอ่าน</span>
       </div>
