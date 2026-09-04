@@ -12,8 +12,6 @@ export default {
   Layout,
   NotFound,
   enhanceApp({ app }) {
-    // Registered globally so it's usable directly inside plain Markdown
-    // (see about.md) as <GithubActivityChart />.
     app.component('GithubActivityChart', GithubActivityChart)
   },
 } satisfies Theme

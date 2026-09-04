@@ -11,10 +11,6 @@ export interface TranslationData {
 declare const data: TranslationData[]
 export { data }
 
-// Optional per-post English companion files (posts/<year>/<slug>.en.md).
-// These are srcExcluded from routing (see config.ts) - they never become
-// their own page. `render: true` gives the compiled HTML body so Post.vue
-// can show it as an in-place toggle on the Thai post's own page.
 export default createContentLoader('posts/*/*.en.md', {
   includeSrc: true,
   render: true,

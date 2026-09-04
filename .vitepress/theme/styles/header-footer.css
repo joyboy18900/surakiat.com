@@ -1,6 +1,3 @@
-/* Shared header/footer chrome - ported from the synced mockup's per-page
-   <style> blocks (identical across index/about/blog/post-sample). */
-
 .site-header {
   border-bottom: var(--border-weight) solid var(--border);
   padding: calc(var(--space-unit) * 3) 0;
@@ -82,9 +79,6 @@
   margin-top: var(--space-unit);
 }
 
-/* Mobile/tablet nav - a hamburger collapses the full nav into a stacked,
-   touch-friendly panel below 768px (tablet-portrait checkpoint); the inline
-   nav above that width is untouched. */
 .nav-toggle {
   display: none;
   align-items: center;
