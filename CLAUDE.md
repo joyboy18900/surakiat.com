@@ -87,9 +87,11 @@ Two fields are **computed in the loader, not authored in frontmatter**:
   word-count would undercount it badly); the English companion (if any)
   gets its own word-count-based reading time via the same file.
 - **Categories** shown in `BlogIndex.vue`'s filter are derived dynamically
-  from whatever `category` values actually exist across posts - there is
+  from whatever `categories` values actually exist across posts - there is
   no hardcoded category list anywhere. A new category on a new post just
-  shows up.
+  shows up. `categories` is a YAML list, so one post can sit in several
+  categories at once (it renders one tag per entry and matches every one
+  of them in the filter).
 
 ### Search (`.vitepress/theme/components/Search.vue`)
 
@@ -108,7 +110,7 @@ date: "YYYY-MM-DD"       # required, MUST be quoted - unquoted, YAML parses it a
                          # Date and JSON.stringify (used to serialize loader data)
                          # turns it into a full ISO timestamp instead of YYYY-MM-DD.
                          # Sorting still works either way; display breaks.
-category: string        # required - feeds the dynamic filter, any string works
+categories: [tech, life] # required - YAML list, >=1 entry; feeds the dynamic filter
 description: string     # required - shown in the list view
 cover: /covers/x.jpg     # optional - omit entirely if there's no cover
 layout: post             # required for individual posts

@@ -18,7 +18,7 @@ const overlayEl = ref<HTMLDivElement | null>(null)
 const searchIndex = posts.map((p) => ({
   post: p,
   title: p.title.toLowerCase(),
-  category: p.category.toLowerCase(),
+  category: p.categories.join(' ').toLowerCase(),
   description: p.description.toLowerCase(),
 }))
 
@@ -162,7 +162,7 @@ onUnmounted(() => {
           >
             <div class="search-result-meta">
               <time :datetime="post.date">{{ formatDate(post.date) }}</time>
-              <span class="row-tag">{{ post.category }}</span>
+              <span v-for="c in post.categories" :key="c" class="row-tag">{{ c }}</span>
             </div>
             <div class="search-result-title">{{ post.title }}</div>
             <p class="search-result-desc">{{ post.description }}</p>
@@ -322,8 +322,6 @@ kbd {
 }
 
 @media (max-width: 768px) {
-  /* trigger becomes a full-width labeled row on mobile; hint kbds inside
-     the modal itself are unaffected */
   .trigger-kbd {
     display: none;
   }
