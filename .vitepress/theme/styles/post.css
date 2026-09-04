@@ -1,6 +1,3 @@
-/* Individual post page - global (not scoped) because the article body
-   comes through VitePress's <Content/>, which scoped styles can't reach. */
-
 .back-link {
   display: inline-block;
   margin-bottom: calc(var(--space-unit) * 4);
@@ -39,20 +36,13 @@
   letter-spacing: 0.06em;
 }
 
-/* .post-article h2 stays post-scoped deliberately: about.css sets a plain,
-   global `h2` rule for chrome section-labels (small-caps, muted - "GitHub
-   Activity"), which is a different job from an h2 written inside a post's
-   own prose body. Generalizing this one would make post subheadings look
-   like chrome labels. Paragraph/code/pre rules below have no such
-   conflict, so they're plain global rules in base.css, applying uniformly
-   to any <Content/>-rendered markdown (Home's bio, About, post bodies). */
 .post-article h2 {
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   color: var(--fg);
   text-transform: none;
   letter-spacing: normal;
   font-weight: 700;
-  margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2);
+  margin: calc(var(--space-unit) * 6) 0 calc(var(--space-unit) * 2);
 }
 
 .post-article footer {
