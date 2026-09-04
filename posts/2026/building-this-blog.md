@@ -1,7 +1,7 @@
 ---
 title: blog แรกของผม
 date: "2026-09-02"
-categories: [tech, life]
+categories: [tech, lifestyle]
 description: บันทึกไว้ว่าเริ่มเขียนบล็อกจริงจังแล้ว หลังบ่นอยู่ในโซเชียลมานาน พร้อมโน้ตสั้นๆ ว่าเว็บนี้ทำงานยังไง
 layout: post
 ---

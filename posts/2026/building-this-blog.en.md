@@ -1,7 +1,7 @@
 ---
 title: My first blog
 date: "2026-09-02"
-categories: [tech, life]
+categories: [tech, lifestyle]
 description: A note that I have started blogging for real, after complaining on social media for a long time, plus a short note on how this site works.
 layout: post
 ---
